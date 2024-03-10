@@ -9,7 +9,7 @@
 <body>
 <div align="center">
     <h2>Login</h2>
-    <p th:if="${errorMessage}" th:text="${errorMessage}" style="color: red;"></p>
+    <div th:if="${session.errorMessage != null}" th:text="${session.errorMessage}"></div>
 
     <form th:action="@{/login}" method="post">
         <label for="username">Username:</label>
