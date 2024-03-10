@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+<body>
+<div align="center">
+    <h2>Welcome</h2>
+    <p>Welcome to the application!</p>
+
+    <p th:if="${name}">
+        Welcome, <span th:text="${name}"></span>!
+        <br/>
+        Username: <span th:text="${username}"></span>
+        <br/>
+        Role: <span th:text="${role}"></span>
+    </p>
+
+    <button th:if="${#request.isUserInRole('USER') or #request.isUserInRole('MANAGER')}" onclick="window.location.href='/login'">
+        Logout
+    </button>
+
+    <button onclick="window.location.href='/manager'">
+        Access Manager
+    </button>
+</div>
+</body>
+</html>
